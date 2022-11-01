@@ -3,10 +3,12 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
 const { NETWORK_LINK } = require('./constants');
-const { interface, bytecode } = require('./compile');
+const { abi, evm } = require('./compile');
 
 const provider = new HDWalletProvider(
   process.env.PNEUMONIC_PRHASE,
+  // instead of using an ethereum local machine,
+  // we use Infura which is free service
   NETWORK_LINK
 );
 
@@ -17,9 +19,8 @@ const web3 = new Web3(provider);
 
   console.log('Attempting to deploy from account', accounts[0]);
 
-  const result = await new web3.eth
-    .Contract(JSON.parse(interface))
-    .deploy({ data: bytecode, arguments: ['Hi there!'] })
+  const result = await new web3.eth.Contract(abi)
+    .deploy({ data: evm.bytecode.object, arguments: ['Hi there!'] })
     .send({ gas: '1000000', from: accounts[0] });
 
   console.log('Contract deployed to', result.options.address);
