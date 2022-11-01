@@ -6,13 +6,13 @@ const solc = require('solc');
  * __dirname always point to the root directory "Inbox"
  * in our case.
  */
-const inboxPath = path.resolve(__dirname, 'contracts', 'Lottery.sol');
-const source = fs.readFileSync(inboxPath, 'utf-8');
+const LotteryPath = path.resolve(__dirname, 'contracts', 'Lottery.sol');
+const source = fs.readFileSync(LotteryPath, 'utf-8');
 
 const input = {
   language: 'Solidity',
   sources: {
-    'Inbox.sol': {
+    'Lottery.sol': {
       content: source,
     },
   },
