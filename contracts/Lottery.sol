@@ -13,7 +13,7 @@ contract Lottery {
     }
 
     function enter() public payable {
-        require(msg.value > .01 ether);
+        require(msg.value > .001 ether);
 
         players.push(payable(msg.sender));
     }
@@ -29,14 +29,14 @@ contract Lottery {
     function getPlayers() public view returns (address payable[] memory) {
         return players;
     }
- 
+
     modifier restricted() {
         require(msg.sender == manager);
         _;
     }
 
-    // Static (Private) Functions 
-        function _random() private view returns (uint) {
+    // Static (Private) Functions
+    function _random() private view returns (uint) {
         uint source = block.difficulty + block.timestamp;
 
         return uint(keccak256(abi.encodePacked(source)));

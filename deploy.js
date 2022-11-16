@@ -5,6 +5,8 @@ const Web3 = require('web3');
 const { NETWORK_LINK } = require('./constants');
 const { abi, evm } = require('./compile');
 
+console.log('abi:', JSON.stringify(abi));
+
 const provider = new HDWalletProvider(
   process.env.PNEUMONIC_PRHASE,
   // instead of using an ethereum local machine,
