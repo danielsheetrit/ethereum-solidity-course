@@ -1,1 +1,1 @@
-Back and and contract logic (Solidity & Node.js)
+Back-end and contract logic (Solidity & Node.js)
