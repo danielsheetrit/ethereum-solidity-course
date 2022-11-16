@@ -1,2 +1,1 @@
-# ethereum-solidity-course
-ethereum-solidity-course
+Back and and contract logic (Solidity & Node.js)
